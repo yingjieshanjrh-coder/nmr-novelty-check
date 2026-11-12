@@ -9,9 +9,9 @@
 
 ```
 $ python -m peakassign examples/ethyl_benzoate/targets.yaml examples/ethyl_benzoate/measured_peaks.csv
-   8.05   2.01H  产物        苯甲酸乙酯 ArH（C7,C11）
+   8.05   2.01H  产物        苯甲酸乙酯 ArH（C7,11）
    7.55   0.97H  产物        苯甲酸乙酯 ArH（C9）
-   7.44   2.03H  产物        苯甲酸乙酯 ArH（C8,C10）
+   7.44   2.03H  产物        苯甲酸乙酯 ArH（C8,10）
    7.26   0.21H  溶剂/杂质     CHCl3（CDCl3 残留峰）
    4.38   1.98H  产物        苯甲酸乙酯 CH2（C2）
    3.72   0.60H  原料        乙醇 CH2（C2）
