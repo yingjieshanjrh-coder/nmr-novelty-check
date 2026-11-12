@@ -19,6 +19,10 @@ md: reports/c1ccccc1.md
 
 The full report for this run is in [examples/benzene.md](examples/benzene.md).
 
+## Known limitation: automatic download
+
+> **Known limitation: automatic download is untested against the real Zenodo and SourceForge endpoints.** The download code has only been exercised against a local HTTP server. If `nmrcheck check` fails at the download step on a fresh clone, use `nmrcheck build --from-dir "<path>" --offline` with manually downloaded files instead.
+
 ## Install
 
 Python 3.10 or newer.
@@ -172,6 +176,16 @@ The comparison in step 4 matters because NMRexp was extracted from PDFs
 automatically. In the benzene example one NMRexp record pairs benzene with a
 triplet at 0.82 ppm and a doublet at 0.97 ppm; that record gets an agreement
 score of 0.00 and does not count as support.
+
+## Validation
+
+| Compound | In training set? | Confidence | Verdict | What it demonstrates |
+|---|---|---|---|---|
+| benzene (`c1ccccc1`) | Yes | 0.95 | `reported` | In-distribution match; report flags `prediction_not_independent`, so not evidence of generalization |
+| ibuprofen (`CC(C)Cc1ccc(cc1)C(C)C(=O)O`) | Yes | 0.95 | `reported` | Same caveat; also exposes 0.83 ppm error on the exchangeable COOH proton |
+| `CC1=C2C(=O)N(c3ccc(Cl)cc3)C(=S)N2CC(O)O1` | No | 0.45 | `reported_unverified` | Out-of-distribution; predicted spectrum does not fit the single experimental record; tool downgrades instead of overclaiming |
+
+> `reported_unverified` means a record with an identical InChIKey exists, but none of its peak lists fits the predicted spectrum. This should **not** be read as "the structure is wrong". It means either the literature extraction paired the structure with the wrong peak list, or the predictor is unreliable for this skeleton. The JSON report's `degradations` field (shown as "Degradation log" in the Markdown report) currently only flags predictor unreliability via `prediction_low_radius`; it cannot yet distinguish extraction errors, so human review is required.
 
 ## Data sources
 
