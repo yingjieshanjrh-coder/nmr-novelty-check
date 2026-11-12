@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "nmr-novelty-check"
+abstract: "Check whether NMR data for a compound have already been published in open databases."
+type: software
+authors:
+  - family-names: Shan
+    given-names: Yingjie
+    orcid: "https://orcid.org/0009-0007-6218-1248"
+    affiliation: "University of St Andrews"
+repository-code: "https://github.com/yingjieshanjrh-coder/nmr-novelty-check"
+license: MIT
+version: "0.1.0"
+date-released: "2026-11-12"
+keywords:
+  - NMR
+  - dereplication
+  - cheminformatics
