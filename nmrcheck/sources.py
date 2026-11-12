@@ -73,6 +73,23 @@ def file_md5(path, chunk=1 << 22):
     return h.hexdigest()
 
 
+def cached_md5(path):
+    """MD5 of a file, remembered in a '<name>.md5' file next to it.
+
+    The remembered value is used only while it is newer than the file; a
+    file that was replaced or downloaded again is hashed afresh.
+    """
+    path = Path(path)
+    stamp = path.with_name(path.name + ".md5")
+    if stamp.exists() and stamp.stat().st_mtime > path.stat().st_mtime:
+        digest = stamp.read_text().strip()
+        if digest:
+            return digest
+    digest = file_md5(path)
+    stamp.write_text(digest)
+    return digest
+
+
 class FetchError(RuntimeError):
     pass
 
@@ -142,11 +159,7 @@ def fetch(name, data_dir, from_dir=None, offline=False, log=None):
             return None
 
     if src.md5:
-        stamp = dest.with_name(dest.name + ".md5")
-        digest = stamp.read_text().strip() if stamp.exists() else ""
-        if not digest:
-            digest = file_md5(dest)
-            stamp.write_text(digest)
+        digest = cached_md5(dest)
         if digest != src.md5:
             note("checksum_mismatch", name,
                  f"expected md5 {src.md5}, got {digest}; file used as is")

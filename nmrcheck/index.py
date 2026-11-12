@@ -13,7 +13,7 @@ from . import __version__
 from .chem import identify, identify_smiles
 from .parsers import READERS
 from .predict import MAX_RADIUS, ShiftTable, predict
-from .sources import SOURCES, file_md5
+from .sources import SOURCES, cached_md5, file_md5
 
 SCHEMA = """
 CREATE TABLE compounds (
@@ -226,8 +226,7 @@ def build(data_dir, files, log=None, workers=None, limit=None, quiet=False):
     db.executescript(INDEXES)
     for name, path in files.items():
         src = SOURCES[name]
-        stamp = Path(str(path) + ".md5")
-        md5 = stamp.read_text().strip() if stamp.exists() else file_md5(path)
+        md5 = cached_md5(path) if src.md5 else file_md5(path)
         meta["sources"][name] = {
             "file": src.filename, "md5": md5, "bytes": os.path.getsize(path),
             "spectra": builder.counts.get(name, 0), "license": src.license,

@@ -2,12 +2,13 @@ import functools
 import hashlib
 import http.server
 import json
+import os
 import threading
 
 import pytest
 
 from conftest import write_sources
-from nmrcheck import cli
+from nmrcheck import cli, sources
 from nmrcheck.sources import SOURCES, Source, fetch, source_path
 from nmrcheck.web import create_app
 
@@ -54,6 +55,39 @@ def test_checksum_mismatch_is_logged(served, tmp_path, monkeypatch):
     notes = []
     fetch("nmrexp", tmp_path / "data", log=lambda *a: notes.append(a))
     assert notes[0][0] == "checksum_mismatch"
+
+
+def test_checksum_cache_is_dropped_when_file_changes(tmp_path, monkeypatch):
+    good = b"published content"
+    monkeypatch.setitem(SOURCES, "nmrexp", fake_source(
+        "nmrexp", "", hashlib.md5(good).hexdigest()))
+    path = source_path(tmp_path, "nmrexp")
+    path.parent.mkdir(parents=True)
+    path.write_bytes(good)
+    stamp = path.with_name(path.name + ".md5")
+
+    notes = []
+    fetch("nmrexp", tmp_path, offline=True, log=lambda *a: notes.append(a))
+    assert notes == []
+    assert stamp.read_text() == hashlib.md5(good).hexdigest()
+
+    # while the cache is newer than the file it is trusted and nothing is hashed
+    calls = []
+    real_md5 = sources.file_md5
+    monkeypatch.setattr(sources, "file_md5",
+                        lambda p, *a: calls.append(p) or real_md5(p, *a))
+    fetch("nmrexp", tmp_path, offline=True, log=lambda *a: notes.append(a))
+    assert calls == [] and notes == []
+
+    # the file is replaced by a different download: the cache must not hide it
+    bad = b"truncated or tampered"
+    path.write_bytes(bad)
+    later = stamp.stat().st_mtime + 60
+    os.utime(path, (later, later))
+    fetch("nmrexp", tmp_path, offline=True, log=lambda *a: notes.append(a))
+    assert calls == [path]
+    assert [n[0] for n in notes] == ["checksum_mismatch"]
+    assert stamp.read_text() == hashlib.md5(bad).hexdigest()
 
 
 def test_failed_download_is_logged(served, tmp_path, monkeypatch):

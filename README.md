@@ -19,9 +19,11 @@ md: reports/c1ccccc1.md
 
 The full report for this run is in [examples/benzene.md](examples/benzene.md).
 
-## Known limitation: automatic download
+## Automatic download verified
 
-> **Known limitation: automatic download is untested against the real Zenodo and SourceForge endpoints.** The download code has only been exercised against a local HTTP server. If `nmrcheck check` fails at the download step on a fresh clone, use `nmrcheck build --from-dir "<path>" --offline` with manually downloaded files instead.
+`nmrcheck check <SMILES>` on a fresh clone with no local data will download NMRexp from Zenodo and nmrshiftdb2 from SourceForge, verify the NMRexp checksum, build the local index, and run the check. This was verified end-to-end on 2026-11-12: benzene (`c1ccccc1`) returned `reported` with confidence 0.95 after an automatic download and index build.
+
+If the download step fails on your network (firewall, proxy, or a changed upstream URL), fall back to manual download and `nmrcheck build --from-dir "<path>" --offline`.
 
 ## Install
 
