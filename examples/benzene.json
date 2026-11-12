@@ -1,0 +1,534 @@
+{
+  "tool": {
+    "name": "nmr-novelty-check",
+    "version": "0.1.0"
+  },
+  "generated": "2026-11-12T00:05:55+00:00",
+  "query": {
+    "target": "c1ccccc1",
+    "reaction": null,
+    "reactants": [],
+    "reagents": [],
+    "impurities": [],
+    "solvent": null
+  },
+  "verdict": {
+    "status": "reported",
+    "confidence": 0.95,
+    "summary": "Experimental NMR data for this exact structure are present in the indexed public sources.",
+    "reasons": [
+      "13 experimental record(s) with an identical InChIKey (base 0.70)",
+      "11 record(s) fit the predicted spectrum (+0.10)",
+      "3 independent documents (+0.10)",
+      "found in more than one database (+0.05)"
+    ]
+  },
+  "target": {
+    "smiles": "c1ccccc1",
+    "inchikey": "UHOVQNZJYSORNB-UHFFFAOYSA-N",
+    "formula": "C6H6",
+    "atom_map": "[cH:1]1[cH:2][cH:3][cH:4][cH:5][cH:6]1",
+    "record_counts": {
+      "13C": {
+        "exact_experimental": 4,
+        "exact_calculated": 0,
+        "variant": 0,
+        "documents": 1
+      },
+      "1H": {
+        "exact_experimental": 9,
+        "exact_calculated": 0,
+        "variant": 0,
+        "documents": 2
+      }
+    },
+    "prediction_independent": false,
+    "predicted": {
+      "13C": [
+        {
+          "atoms": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "shift": 128.5,
+          "radius": 4,
+          "support": 18,
+          "count": 6
+        }
+      ],
+      "1H": [
+        {
+          "atoms": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "shift": 7.36,
+          "radius": 4,
+          "support": 44,
+          "count": 6
+        }
+      ]
+    },
+    "evidence": {
+      "13C": [
+        {
+          "evidence": "experimental",
+          "match": "exact",
+          "source": "nmrshiftdb2",
+          "record_id": "7901/0",
+          "doi": null,
+          "nucleus": "13C",
+          "solvent": "CDCl3",
+          "frequency": null,
+          "peaks": [
+            128.5
+          ],
+          "agreement": {
+            "score": 1.0,
+            "mae": 0.0,
+            "max_dev": 0.0,
+            "unexplained": 0
+          }
+        },
+        {
+          "evidence": "experimental",
+          "match": "exact",
+          "source": "nmrshiftdb2",
+          "record_id": "7901/2",
+          "doi": null,
+          "nucleus": "13C",
+          "solvent": null,
+          "frequency": null,
+          "peaks": [
+            128.5
+          ],
+          "agreement": {
+            "score": 1.0,
+            "mae": 0.0,
+            "max_dev": 0.0,
+            "unexplained": 0
+          }
+        },
+        {
+          "evidence": "experimental",
+          "match": "exact",
+          "source": "nmrshiftdb2",
+          "record_id": "7901/1",
+          "doi": null,
+          "nucleus": "13C",
+          "solvent": null,
+          "frequency": null,
+          "peaks": [
+            128.59
+          ],
+          "agreement": {
+            "score": 0.97,
+            "mae": 0.09,
+            "max_dev": 0.09,
+            "unexplained": 0
+          }
+        },
+        {
+          "evidence": "experimental",
+          "match": "exact",
+          "source": "nmrexp",
+          "record_id": "550054",
+          "doi": "10.1021/acscatal.1c03375",
+          "nucleus": "13C",
+          "solvent": null,
+          "frequency": "125 MHz",
+          "peaks": [
+            128.62
+          ],
+          "agreement": {
+            "score": 0.961,
+            "mae": 0.12,
+            "max_dev": 0.12,
+            "unexplained": 0
+          }
+        }
+      ],
+      "1H": [
+        {
+          "evidence": "experimental",
+          "match": "exact",
+          "source": "nmrshiftdb2",
+          "record_id": "7901/4",
+          "doi": null,
+          "nucleus": "1H",
+          "solvent": "CDCl3",
+          "frequency": "300.1 MHz",
+          "peaks": [
+            [
+              7.36,
+              7.36,
+              7.36,
+              "",
+              6
+            ]
+          ],
+          "agreement": {
+            "score": 1.0,
+            "mae": 0.0,
+            "max_dev": 0.0,
+            "unexplained": 0
+          }
+        },
+        {
+          "evidence": "experimental",
+          "match": "exact",
+          "source": "nmrshiftdb2",
+          "record_id": "7901/5",
+          "doi": null,
+          "nucleus": "1H",
+          "solvent": "CD3COCD3",
+          "frequency": "300.1 MHz",
+          "peaks": [
+            [
+              7.36,
+              7.36,
+              7.36,
+              "",
+              6
+            ]
+          ],
+          "agreement": {
+            "score": 1.0,
+            "mae": 0.0,
+            "max_dev": 0.0,
+            "unexplained": 0
+          }
+        },
+        {
+          "evidence": "experimental",
+          "match": "exact",
+          "source": "nmrshiftdb2",
+          "record_id": "7901/6",
+          "doi": null,
+          "nucleus": "1H",
+          "solvent": "DMSO-d6",
+          "frequency": "300.1 MHz",
+          "peaks": [
+            [
+              7.37,
+              7.37,
+              7.37,
+              "",
+              6
+            ]
+          ],
+          "agreement": {
+            "score": 0.967,
+            "mae": 0.01,
+            "max_dev": 0.01,
+            "unexplained": 0
+          }
+        },
+        {
+          "evidence": "experimental",
+          "match": "exact",
+          "source": "nmrshiftdb2",
+          "record_id": "7901/8",
+          "doi": null,
+          "nucleus": "1H",
+          "solvent": "CD3CN",
+          "frequency": "300.1 MHz",
+          "peaks": [
+            [
+              7.37,
+              7.37,
+              7.37,
+              "",
+              6
+            ]
+          ],
+          "agreement": {
+            "score": 0.967,
+            "mae": 0.01,
+            "max_dev": 0.01,
+            "unexplained": 0
+          }
+        },
+        {
+          "evidence": "experimental",
+          "match": "exact",
+          "source": "nmrshiftdb2",
+          "record_id": "7901/9",
+          "doi": null,
+          "nucleus": "1H",
+          "solvent": "CD3OD",
+          "frequency": "300.1 MHz",
+          "peaks": [
+            [
+              7.33,
+              7.33,
+              7.33,
+              "",
+              6
+            ]
+          ],
+          "agreement": {
+            "score": 0.905,
+            "mae": 0.03,
+            "max_dev": 0.03,
+            "unexplained": 0
+          }
+        },
+        {
+          "evidence": "experimental",
+          "match": "exact",
+          "source": "nmrexp",
+          "record_id": "550053",
+          "doi": "10.1021/acscatal.1c03375",
+          "nucleus": "1H",
+          "solvent": null,
+          "frequency": "500 MHz",
+          "peaks": [
+            [
+              7.28,
+              7.28,
+              7.28,
+              "s",
+              6
+            ]
+          ],
+          "agreement": {
+            "score": 0.766,
+            "mae": 0.08,
+            "max_dev": 0.08,
+            "unexplained": 0
+          }
+        },
+        {
+          "evidence": "experimental",
+          "match": "exact",
+          "source": "nmrshiftdb2",
+          "record_id": "7901/3",
+          "doi": null,
+          "nucleus": "1H",
+          "solvent": "CCl4",
+          "frequency": "60 MHz",
+          "peaks": [
+            [
+              7.23,
+              7.23,
+              7.23,
+              "",
+              6
+            ]
+          ],
+          "agreement": {
+            "score": 0.648,
+            "mae": 0.13,
+            "max_dev": 0.13,
+            "unexplained": 0
+          }
+        },
+        {
+          "evidence": "experimental",
+          "match": "exact",
+          "source": "nmrshiftdb2",
+          "record_id": "7901/7",
+          "doi": null,
+          "nucleus": "1H",
+          "solvent": "C6D6",
+          "frequency": "300.1 MHz",
+          "peaks": [
+            [
+              7.15,
+              7.15,
+              7.15,
+              "",
+              6
+            ]
+          ],
+          "agreement": {
+            "score": 0.497,
+            "mae": 0.21,
+            "max_dev": 0.21,
+            "unexplained": 0
+          }
+        },
+        {
+          "evidence": "experimental",
+          "match": "exact",
+          "source": "nmrexp",
+          "record_id": "6955",
+          "doi": "10.1021/ja202900h",
+          "nucleus": "1H",
+          "solvent": "CDCl3",
+          "frequency": "400 MHz",
+          "peaks": [
+            [
+              0.82,
+              0.82,
+              0.82,
+              "t",
+              3
+            ],
+            [
+              0.97,
+              0.97,
+              0.97,
+              "d",
+              3
+            ]
+          ],
+          "agreement": {
+            "score": 0.0,
+            "mae": 6.39,
+            "max_dev": 6.39,
+            "unexplained": 1
+          }
+        }
+      ]
+    },
+    "assignment": {
+      "13C": [
+        {
+          "atoms": "C1,2,3,4,5,6",
+          "observed": 128.5,
+          "predicted": 128.5,
+          "delta": 0.0,
+          "radius": 4,
+          "support": 18,
+          "count": 6
+        }
+      ],
+      "1H": [
+        {
+          "atoms": "C1,2,3,4,5,6",
+          "observed": 7.36,
+          "predicted": 7.36,
+          "delta": 0.0,
+          "radius": 4,
+          "support": 44,
+          "count": 6
+        }
+      ]
+    }
+  },
+  "components": [],
+  "mixture": [],
+  "parameters": {
+    "agreement_threshold": 0.5,
+    "overlap_window_ppm": {
+      "13C": 0.5,
+      "1H": 0.05
+    },
+    "identity": "InChIKey (exact) / first InChIKey block (variant)"
+  },
+  "data": {
+    "index_built": "2026-11-11T23:52:38+00:00",
+    "compounds": 1547488,
+    "sources": {
+      "nmrshiftdb2": {
+        "file": "nmrshiftdb2withsignals.sd",
+        "md5": "d8fc88de76f18e33a8386fb49fb89ecc",
+        "bytes": 158569118,
+        "spectra": 76440,
+        "license": "nmrshiftdb2 Data License (open content)",
+        "citation": "Kuhn S., Schloerer N.E., Magn. Reson. Chem. 2015, 53, 582",
+        "homepage": "https://nmrshiftdb.nmr.uni-koeln.de"
+      },
+      "nmrexp": {
+        "file": "NMRexp_10to24_1_1004.parquet",
+        "md5": "2f9ed8bc533364dfb9dce96c83703dd4",
+        "bytes": 661259287,
+        "spectra": 3351159,
+        "license": "CC BY 4.0",
+        "citation": "Wang J.-J. et al., Sci. Data 2025; Zenodo 10.5281/zenodo.17296666",
+        "homepage": "https://zenodo.org/records/17296666"
+      }
+    },
+    "predictor": {
+      "max_radius": 4,
+      "holdout": {
+        "13C": {
+          "4": {
+            "n": 17830,
+            "mae": 1.103
+          },
+          "3": {
+            "n": 9116,
+            "mae": 2.076
+          },
+          "2": {
+            "n": 10780,
+            "mae": 3.281
+          },
+          "1": {
+            "n": 5650,
+            "mae": 6.999
+          },
+          "0": {
+            "n": 235,
+            "mae": 18.274
+          },
+          "all": {
+            "n": 43611,
+            "mae": 2.701
+          }
+        },
+        "1H": {
+          "4": {
+            "n": 6250,
+            "mae": 0.142
+          },
+          "3": {
+            "n": 2161,
+            "mae": 0.263
+          },
+          "2": {
+            "n": 2522,
+            "mae": 0.378
+          },
+          "1": {
+            "n": 1539,
+            "mae": 0.628
+          },
+          "0": {
+            "n": 87,
+            "mae": 1.549
+          },
+          "-1": {
+            "n": 1,
+            "mae": 3.13
+          },
+          "all": {
+            "n": 12560,
+            "mae": 0.28
+          }
+        }
+      }
+    }
+  },
+  "degradations": [
+    {
+      "code": "source_not_indexed",
+      "subject": "nmrbank",
+      "detail": "NMRBank.csv was not available when the index was built"
+    },
+    {
+      "code": "prediction_not_independent",
+      "subject": "c1ccccc1",
+      "detail": "this compound is part of the predictor's training data, so agreement with nmrshiftdb2 records is partly circular"
+    }
+  ],
+  "limitations": [
+    "Coverage is limited to the indexed sources. NMRexp is drawn from supporting information of 2010-2024 papers; compounds published elsewhere, in patents, or in subscription databases (SciFinder, Reaxys) are not seen.",
+    "NMRexp was extracted automatically from PDFs. Structures can be paired with the wrong paragraph and peak lists can contain recognition errors.",
+    "Structures are compared by InChIKey. Salts, solvates, tautomers and different charge states are treated as different compounds.",
+    "Predicted shifts come from an environment look-up trained on nmrshiftdb2. Solvent, concentration, temperature and stereochemistry are ignored, and exchangeable protons are unreliable.",
+    "Peak assignment is by nearest predicted shift. It is a proposal, not a 2D-NMR-grade assignment.",
+    "No user spectrum is involved: the tool checks whether data have been published, it does not verify a sample."
+  ]
+}

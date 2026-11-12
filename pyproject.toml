@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nmr-novelty-check"
+version = "0.1.0"
+description = "Check whether NMR data for a compound have already been published in open databases"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Yingjie Shan" }]
+requires-python = ">=3.10"
+dependencies = [
+    "rdkit>=2023.9",
+    "pyarrow>=14",
+    "numpy",
+    "scipy",
+    "requests",
+    "flask>=2.2",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+nmrcheck = "nmrcheck.cli:main"
+
+[tool.setuptools]
+packages = ["nmrcheck"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
