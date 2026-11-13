@@ -1,5 +1,7 @@
 # nmr-novelty-check
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24169240.svg)](https://doi.org/10.5281/zenodo.24169240)
+
 Has the NMR spectrum of this compound already been published?
 
 `nmrcheck` takes a structure (or a reaction) as SMILES, looks it up in open
